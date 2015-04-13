@@ -9,7 +9,7 @@ A GUI page counter
 ## ToDo
 
 * Move to MVVM
-* MOVE to OOP
+* Move to OOP
 * Build real gui
 
 ## Done

@@ -34,17 +34,32 @@ namespace CountPages
 		{
 			if (!e.Data.GetDataPresent(DataFormats.FileDrop)) return;
 
-			var paths = (string[])e.Data.GetData(DataFormats.FileDrop);
-			var count = paths.Select(path => new FileInfo(path)).Where(file => file.Extension.Equals(".pdf")).Sum(file => CountPdfPages(file));
+			try
+			{
+				var paths = (string[])e.Data.GetData(DataFormats.FileDrop);
+				var count = paths.Select(path => new FileInfo(path)).Where(file => file.Extension.Equals(".pdf")).Sum(file => CountPdfPages(file));
 
-			MessageBox.Show(count.ToString());
-			
+				CountBlock.Text = count.ToString();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
 		}
 
 		public static int CountPdfPages(FileSystemInfo file)
 		{
-			var pdfReader = new PdfReader(file.FullName);
-			return pdfReader.NumberOfPages;
+			try
+			{
+				var pdfReader = new PdfReader(file.FullName);
+				return pdfReader.NumberOfPages;
+			}
+			catch (Exception ex)
+			{
+				// we could skip and return 0.
+				throw new Exception(String.Format("There is a problem with {0}", file.FullName), ex);
+			}
+
 		}
 	}
 }

@@ -5,17 +5,17 @@
 	<Grid Drop="DropList_Drop" AllowDrop="True" Background="White">
 		<Grid VerticalAlignment="Center" HorizontalAlignment="Center">
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="Auto"/>
-				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="Auto" />
 			</Grid.ColumnDefinitions>
 
 			<Grid>
 				<TextBlock x:Name="CountBlock" Text="0" Foreground="#667080"
-					   VerticalAlignment="Center" FontSize="76" Margin="0,14,6,0"/>
+					   VerticalAlignment="Center" FontSize="76" Margin="0,14,6,0" />
 			</Grid>
 			<Grid Grid.Column="1">
 				<Path Data="M30.100148,11.677001L42.759999,11.677001 42.759999,63.999998 6.7189986,63.999998C16.461017,60.111994 28.833173,54.078081 29.678258,48.24737 29.678258,48.114573 29.676957,47.963469 29.676957,47.822866L30.100148,47.822866z M0,11.677L9.0023916,11.677 9.282418,38.963556C9.2824175,38.963556 21.098645,42.197863 21.942435,47.825476 22.676826,52.731783 9.0871098,58.275995 0,60.362001z M13.501999,0C20.736632,1.3957977,25.094974,7.242126,25.879998,8.3749263L25.879998,45.01C23.770631,36.148079,13.642704,35.869482,13.642704,35.869482z"
-				      Stretch="Uniform" Fill="#667080" Width="76" Height="76" Margin="6,0,0,0" RenderTransformOrigin="0.5,0.5"/>
+				      Stretch="Uniform" Fill="#667080" Width="76" Height="76" Margin="6,0,0,0" RenderTransformOrigin="0.5,0.5" />
 			</Grid>
 		</Grid>
 	</Grid>

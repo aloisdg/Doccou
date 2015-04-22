@@ -1,10 +1,10 @@
-﻿using System;
+﻿using iTextSharp.text.pdf;
+using Microsoft.Office.Interop.Word;
+using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
-using iTextSharp.text.pdf;
-using Microsoft.Office.Interop.Word;
 using Application = Microsoft.Office.Interop.Word.Application;
 using Window = System.Windows.Window;
 
@@ -59,7 +59,6 @@ namespace CountPages
 				// we could skip and return 0.
 				throw new Exception(String.Format("There is a problem with {0}", file.FullName), ex);
 			}
-
 		}
 
 		public static int CountWordPages(FileSystemInfo file)
@@ -71,12 +70,12 @@ namespace CountPages
 			object readOnly = false;
 			object isVisible = true;
 
-			//  the way to handle parameters you don't care about in .NET 
+			//  the way to handle parameters you don't care about in .NET
 			object missing = Missing.Value;
 
-			//   Make word visible, so you can see what's happening 
-			//wordApp.Visible = true; 
-			//   Open the document that was chosen by the dialog 
+			//   Make word visible, so you can see what's happening
+			//wordApp.Visible = true;
+			//   Open the document that was chosen by the dialog
 			var aDoc = wordApp.Documents.Open(ref fileName,
 						ref missing, ref readOnly, ref missing,
 						ref missing, ref missing, ref missing,

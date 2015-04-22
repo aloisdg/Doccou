@@ -1,23 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using System.Reflection;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using iTextSharp.text.pdf;
 using Microsoft.Office.Interop.Word;
+using Application = Microsoft.Office.Interop.Word.Application;
 using Window = System.Windows.Window;
 
 namespace CountPages
@@ -77,14 +65,14 @@ namespace CountPages
 		public static int CountWordPages(FileSystemInfo file)
 		{
 			const WdStatistic stat = WdStatistic.wdStatisticPages;
-			_Application wordApp = new Microsoft.Office.Interop.Word.Application();
+			_Application wordApp = new Application();
 
 			object fileName = file.FullName;
 			object readOnly = false;
 			object isVisible = true;
 
 			//  the way to handle parameters you don't care about in .NET 
-			object missing = System.Reflection.Missing.Value;
+			object missing = Missing.Value;
 
 			//   Make word visible, so you can see what's happening 
 			//wordApp.Visible = true; 

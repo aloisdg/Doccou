@@ -10,8 +10,8 @@ A GUI page counter
 
 * Move to MVVM
 * Move to OOP
-* Build real gui
 
 ## Done
 
 * PDF Support
+* Build real gui

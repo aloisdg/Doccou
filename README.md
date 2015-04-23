@@ -25,6 +25,7 @@ Versus
 * Export the summary as a csv
 * Move to Mahapps
 * Switch this list to the issue list
+* Move the PCL lib in a different project
 
 ## ToDo
 

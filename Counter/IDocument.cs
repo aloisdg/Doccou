@@ -1,12 +1,11 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace Counter
 {
 	internal interface IDocument
 	{
-		Stream Stream { get; set; }
 		DocumentType Type { get; }
-
-		uint Count();
+		uint Count { get; }
 	}
 }

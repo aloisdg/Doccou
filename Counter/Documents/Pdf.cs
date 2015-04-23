@@ -4,16 +4,14 @@ using iTextSharp.text.pdf;
 
 namespace Counter.Documents
 {
-	internal class Pdf : ADocument
+	internal sealed class Pdf : ADocument
 	{
-		public override DocumentType Type { get { return DocumentType.Pdf; } }
+		public override DocumentType	Type { get { return DocumentType.Pdf; } }
+		public override uint		Count { get; protected set; }
 
-		public Pdf(Stream stream) : base(stream) { }
-
-		public override uint Count()
+		public Pdf(Stream stream)
 		{
-			var pdfReader = new PdfReader(Stream);
-			return Convert.ToUInt32(pdfReader.NumberOfPages);
+			Count = Convert.ToUInt32(new PdfReader(stream).NumberOfPages);
 		}
 	}
 }

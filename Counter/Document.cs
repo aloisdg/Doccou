@@ -22,16 +22,19 @@ namespace Counter
 
 		public Document(string fullName, Stream stream)
 		{
+
+
 			FullName = fullName;
 			Name = Path.GetFileName(Name);
 			NameWithoutExtension = Path.GetFileNameWithoutExtension(Name);
 			Extension = Path.GetExtension(fullName);
 			var doc = BuildDocument(Extension, stream);
 			ExtensionType = doc.Type;
-			Count = doc.Count();
+			Count = doc.Count;
 		}
 
 		// replace with a static dictionary ?
+		// http://askubuntu.com/questions/305633/how-can-i-determine-the-page-count-of-odt-doc-docx-and-other-office-documents
 		private static IDocument BuildDocument(string extension, Stream stream)
 		{
 			if (extension.Equals(".doc") || extension.Equals(".docx"))

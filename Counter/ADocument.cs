@@ -4,14 +4,12 @@ namespace Counter
 {
 	internal abstract class ADocument : IDocument
 	{
-		public Stream Stream { get; set;}
-		abstract public DocumentType Type { get; }
+		public abstract DocumentType Type { get; }
+		public abstract uint Count { get; protected set; }
 
-		protected ADocument(Stream stream)
+		protected ADocument()
 		{
-			Stream = stream;
+			Count = 0;
 		}
-
-		public abstract uint Count();
 	}
 }

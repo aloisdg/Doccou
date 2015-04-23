@@ -9,38 +9,14 @@ using System.Xml.Linq;
 
 namespace Counter.Documents
 {
-	internal class Doc : ADocument
+	internal sealed class Doc : ADocument
 	{
 		public override DocumentType	Type { get { return DocumentType.Pdf; } }
+		public override uint		Count { get; protected set; }
 
-		public Doc(Stream stream) : base(stream) { }
-
-		public override uint Count()
+		public Doc(Stream stream)
 		{
-			//const WdStatistic stat = WdStatistic.wdStatisticPages;
-			//_Application wordApp = new Application();
-
-			//object fileName = FullName;
-			//object readOnly = false;
-			//object isVisible = true;
-
-			////  the way to handle parameters you don't care about in .NET
-			//object missing = Missing.Value;
-
-			////   Make word visible, so you can see what's happening
-			////wordApp.Visible = true;
-			////   Open the document that was chosen by the dialog
-			//var aDoc = wordApp.Documents.Open(ref fileName,
-			//			ref missing, ref readOnly, ref missing,
-			//			ref missing, ref missing, ref missing,
-			//			ref missing, ref missing, ref missing,
-			//			ref missing, ref isVisible);
-
-			//return Convert.ToUInt32(aDoc.ComputeStatistics(stat, ref missing));
-
-			uint count = GetPageCount(Stream);
-
-			return count;
+			Count = GetPageCount(stream);
 		}
 
 		// a pptx or a docx is a zip

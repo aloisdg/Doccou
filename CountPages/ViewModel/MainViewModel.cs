@@ -1,14 +1,12 @@
-using System;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using iTextSharp.text.pdf;
 using Microsoft.Office.Interop.Word;
-using Application = Microsoft.Office.Interop.Word.Application;
-using Window = System.Windows.Window;
+using System;
+using System.IO;
+using System.Linq;
+using System.Windows;
+using CountPages.Model.Documents;
 
 namespace CountPages.ViewModel
 {
@@ -27,7 +25,9 @@ namespace CountPages.ViewModel
 	public class MainViewModel : ViewModelBase
 	{
 		public uint PageCount { get; set; }
+
 		public RelayCommand<object> Dropped { get; private set; }
+
 		/// <summary>
 		/// Initializes a new instance of the MainViewModel class.
 		/// </summary>
@@ -70,51 +70,13 @@ namespace CountPages.ViewModel
 			}
 		}
 
-		public static int CountPages(FileSystemInfo file)
+		public static uint CountPages(FileSystemInfo file)
 		{
 			if (file.Extension.Equals(".doc") || file.Extension.Equals(".docx"))
-				return CountWordPages(file);
+				return new Doc(file.FullName).Count();
 			if (file.Extension.Equals(".pdf"))
-				return CountPdfPages(file);
+				return new Pdf(file.FullName).Count();
 			return 0;
-		}
-
-		public static int CountPdfPages(FileSystemInfo file)
-		{
-			try
-			{
-				var pdfReader = new PdfReader(file.FullName);
-				return pdfReader.NumberOfPages;
-			}
-			catch (Exception ex)
-			{
-				// we could skip and return 0.
-				throw new Exception(String.Format("There is a problem with {0}", file.FullName), ex);
-			}
-		}
-
-		public static int CountWordPages(FileSystemInfo file)
-		{
-			const WdStatistic stat = WdStatistic.wdStatisticPages;
-			_Application wordApp = new Application();
-
-			object fileName = file.FullName;
-			object readOnly = false;
-			object isVisible = true;
-
-			//  the way to handle parameters you don't care about in .NET
-			object missing = Missing.Value;
-
-			//   Make word visible, so you can see what's happening
-			//wordApp.Visible = true;
-			//   Open the document that was chosen by the dialog
-			var aDoc = wordApp.Documents.Open(ref fileName,
-						ref missing, ref readOnly, ref missing,
-						ref missing, ref missing, ref missing,
-						ref missing, ref missing, ref missing,
-						ref missing, ref isVisible);
-
-			return aDoc.ComputeStatistics(stat, ref missing);
 		}
 	}
 }

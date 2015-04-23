@@ -76,6 +76,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\ADocument.cs" />
+    <Compile Include="Model\Documents\Doc.cs" />
+    <Compile Include="Model\DocumentType.cs" />
+    <Compile Include="Model\IDocument.cs" />
+    <Compile Include="Model\Documents\Pdf.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">

@@ -7,7 +7,6 @@ A GUI page counter
 
 ## ToDo
 
-* Move to MVVM
 * Move to OOP
 
 ## Done
@@ -15,3 +14,4 @@ A GUI page counter
 * PDF Support
 * Build real gui
 * Add .doc and .docx support
+* * Move to MVVM

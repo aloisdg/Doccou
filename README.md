@@ -7,11 +7,13 @@ A GUI page counter
 
 ## ToDo
 
-* Move to OOP
+* Add .doc support
+* Write documentation (how to use, etc.)
 
 ## Done
 
+* Move to OOP
 * PDF Support
 * Build real gui
-* Add .doc and .docx support
-* * Move to MVVM
+* Add .docx support
+* Move to MVVM

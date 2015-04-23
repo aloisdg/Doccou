@@ -29,12 +29,13 @@ Versus
 ## ToDo
 
 * Add .doc support
+* Add .odt support
 * Write documentation (how to use, etc.)
 
 ## Done
 
 * Move to OOP
 * PDF Support
-* Build real gui
+* Create gui
 * Add .docx support
 * Move to MVVM

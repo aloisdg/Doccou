@@ -21,10 +21,10 @@ A simple free and open source app to count document pages from anywhere. Drag an
 
 ## Versus
 
-|                       | [Free][1] | [GUI][2]  | [FOSS][3] |
+|                       |    Free   |   GUI     |    FOSS   |
 | --------------------- |:---------:|:---------:|:---------:|
 | [Pdf Page Count][10]  |     x     |     x     |     x     |
-| [Homemade script][11] |           |           |     x     |
+| [Homemade script][11] |     x     |           |     x     |
 | CountPages            |     x     |     x     |     x     |
 
 ## Issue

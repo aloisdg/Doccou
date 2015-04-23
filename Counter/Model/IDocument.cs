@@ -1,6 +1,6 @@
-﻿namespace CountPages.Model
+﻿namespace Counter.Model
 {
-	public interface IDocument
+	internal interface IDocument
 	{
 		string FullName { get; set; }
 		DocumentType Type { get; }

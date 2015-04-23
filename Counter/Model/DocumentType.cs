@@ -1,4 +1,4 @@
-﻿namespace CountPages.Model
+﻿namespace Counter.Model
 {
 	public enum DocumentType
 	{

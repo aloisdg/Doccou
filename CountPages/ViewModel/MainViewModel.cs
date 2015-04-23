@@ -1,12 +1,10 @@
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.CommandWpf;
-using iTextSharp.text.pdf;
-using Microsoft.Office.Interop.Word;
 using System;
 using System.IO;
 using System.Linq;
 using System.Windows;
-using CountPages.Model.Documents;
+using Counter;
+using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.CommandWpf;
 
 namespace CountPages.ViewModel
 {
@@ -57,26 +55,14 @@ namespace CountPages.ViewModel
 			try
 			{
 				var paths = (string[])e.Data.GetData(DataFormats.FileDrop);
-				var count = paths.Select(path => new FileInfo(path))
-					//.Where(file => file.Extension.Equals(".pdf"))
-					.Sum(file => CountPages(file));
-
-				PageCount = (uint)count;
+				PageCount = Convert.ToUInt32(paths
+					.Sum(path => new Document(path).Count()));
 				RaisePropertyChanged("PageCount");
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message);
 			}
-		}
-
-		public static uint CountPages(FileSystemInfo file)
-		{
-			if (file.Extension.Equals(".doc") || file.Extension.Equals(".docx"))
-				return new Doc(file.FullName).Count();
-			if (file.Extension.Equals(".pdf"))
-				return new Pdf(file.FullName).Count();
-			return 0;
 		}
 	}
 }

@@ -1,6 +1,6 @@
-﻿namespace CountPages.Model
+﻿namespace Counter.Model
 {
-	public abstract class ADocument : IDocument
+	internal abstract class ADocument : IDocument
 	{
 		public string FullName { get; set;}
 		abstract public DocumentType Type { get; }

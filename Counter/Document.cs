@@ -22,8 +22,6 @@ namespace Counter
 
 		public Document(string fullName, Stream stream)
 		{
-
-
 			FullName = fullName;
 			Name = Path.GetFileName(Name);
 			NameWithoutExtension = Path.GetFileNameWithoutExtension(Name);

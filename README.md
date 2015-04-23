@@ -1,5 +1,5 @@
 # CountPages
-A simple free and open source app to count document pages from anywhere. Drag and drop any number of pdfsm docxs to the app to displat the total amount of page.
+A simple free and open source app to count document pages from anywhere. Drag and drop any number of pdfs, docxs to the app to display the total amount of page.
 
 Support
 

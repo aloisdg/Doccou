@@ -3,8 +3,8 @@ A simple free and open source app to count document pages from anywhere. Drag an
 
 Support
 
-|               | Pdf   | Docx  | Doc  |
-| ------------- |:-----:|:-----:|:-----:
+|               | Pdf   | Docx  | Doc  | Odt  | ePub | DjVu |
+| ------------- |:-----:|:-----:|:----:|:----:|:----:|:----:|
 | [Pdf Page Count](http://sourceforge.net/projects/pdfpagecount/) | x |   |
 | [Homemade script](http://blogs.technet.com/b/heyscriptingguy/archive/2006/09/07/how-can-i-get-a-total-page-count-for-all-the-word-documents-in-a-folder.aspx) |   |   | x |
 | CountPages | x | x |   |
@@ -20,24 +20,26 @@ Versus
 ## IdeaBox
 
 * Find a better name
-* Add Image as one page
-* Build a summary file by file
+* Add Image as document with one image equals one page
+* Add a visual summary file by file
 * Export the summary to a text file
 * Export the summary as a csv
 * Move to Mahapps
-* Switch this list to the issue list
+* Move this list to the issue list
 * Move the PCL lib in a different project
+* Add .epub support [1](https://epubreader.codeplex.com/)
+* Add .djvu support
 
 ## ToDo
 
 * Add .doc support
 * Add .odt support
-* Write documentation (how to use, etc.)
+* Add documentation (how to use, etc.)
 
 ## Done
 
 * Move to OOP
-* PDF Support
-* Create gui
+* Add .pdf Support
+* Add gui
 * Add .docx support
 * Move to MVVM

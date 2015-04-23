@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-
-namespace Counter
+﻿namespace Counter
 {
 	internal interface IDocument
 	{

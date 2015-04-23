@@ -42,7 +42,7 @@ namespace Counter.Documents
 			}
 		}
 
-		// we use PCL Storage
+		// we cant use for know PCL Storage
 		//private static async Task<Stream> OpenAsync(string fullName)
 		//{
 		//	var file = await FileSystem.Current.GetFileFromPathAsync(fullName);
@@ -50,6 +50,7 @@ namespace Counter.Documents
 		//}
 
 		// Could we improve this ?
+		// Benchmark XmlDocument with SelectSingleNode ?
 		private static uint ExtractNumber(string content)
 		{
 			//var matched = Regex.Match(content, @"(?<=\<Pages\>).*(?=\</Pages\>)").Groups[1].Value;

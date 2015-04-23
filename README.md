@@ -27,6 +27,14 @@ A simple free and open source app to count document pages from anywhere. Drag an
 | [Homemade script][11] |     x     |           |     x     |
 | CountPages            |     x     |     x     |     x     |
 
+## Tic Tac Toe
+
+|     |     1     |     2     |     3     |
+| --- |:---------:|:---------:|:---------:|
+|  1  |     o     |     o     |     x     |
+|  2  |           |     x     |     o     |
+|  3  |     x     |           |     x     |
+
 ## Issue
 
 ### IdeaBox

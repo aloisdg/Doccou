@@ -19,6 +19,7 @@ Versus
 
 ## IdeaBox
 
+* Find a better name
 * Add Image as one page
 * Build a summary file by file
 * Export the summary to a text file

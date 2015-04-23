@@ -1,23 +1,35 @@
 # CountPages
 A simple free and open source app to count document pages from anywhere. Drag and drop any number of pdfs, docxs to the app to display the total amount of page.
 
-Support
+## Support
 
-|               | Pdf   | Docx  | Doc  | Odt  | ePub | DjVu |
-| ------------- |:-----:|:-----:|:----:|:----:|:----:|:----:|
-| [Pdf Page Count](http://sourceforge.net/projects/pdfpagecount/) | x |   |
-| [Homemade script](http://blogs.technet.com/b/heyscriptingguy/archive/2006/09/07/how-can-i-get-a-total-page-count-for-all-the-word-documents-in-a-folder.aspx) |   |   | x |
-| CountPages | x | x |   |
+|                       | [Pdf][1]  | [Docx][2] | [Doc][3]  | [Odt][4]  | [ePub][5] | [DjVu][6] |
+| --------------------- |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+| [Pdf Page Count][10]  |     x     |           |           |           |           |           |
+| [Homemade script][11] |           |           |     x     |           |           |           |
+| CountPages            |     x     |     x     |           |           |           |           |
 
-Versus
+[1]: http://en.wikipedia.org/wiki/Pdf
+[2]: http://en.wikipedia.org/wiki/docx
+[3]: http://en.wikipedia.org/wiki/doc
+[4]: http://en.wikipedia.org/wiki/OpenDocument
+[5]: http://en.wikipedia.org/wiki/EPUB
+[6]: http://en.wikipedia.org/wiki/DjVu
 
-|               | Free   | Gui | FOSS |
-| ------------- |:-----:|:-----:|:-----:
-| [Pdf Page Count](http://sourceforge.net/projects/pdfpagecount/) | x | x | x |
-| [Homemade script](http://blogs.technet.com/b/heyscriptingguy/archive/2006/09/07/how-can-i-get-a-total-page-count-for-all-the-word-documents-in-a-folder.aspx) |   |   | x |
-| CountPages | x | x | x |
+[10]: http://sourceforge.net/projects/pdfpagecount/
+[11]: http://blogs.technet.com/b/heyscriptingguy/archive/2006/09/07/how-can-i-get-a-total-page-count-for-all-the-word-documents-in-a-folder.aspx
 
-## IdeaBox
+## Versus
+
+|                       | [Free][1] | [GUI][2]  | [FOSS][3] |
+| --------------------- |:---------:|:---------:|:---------:|
+| [Pdf Page Count][10]  |     x     |     x     |     x     |
+| [Homemade script][11] |           |           |     x     |
+| CountPages            |     x     |     x     |     x     |
+
+## Issue
+
+### IdeaBox
 
 * Find a better name
 * Add Image as document with one image equals one page
@@ -30,13 +42,13 @@ Versus
 * Add .epub support [1](https://epubreader.codeplex.com/)
 * Add .djvu support
 
-## ToDo
+### ToDo
 
 * Add .doc support
 * Add .odt support
 * Add documentation (how to use, etc.)
 
-## Done
+### Done
 
 * Move to OOP
 * Add .pdf Support

@@ -1,4 +1,4 @@
-﻿namespace Counter.Model
+﻿namespace Counter
 {
 	public enum DocumentType
 	{

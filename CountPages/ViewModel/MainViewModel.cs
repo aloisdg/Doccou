@@ -56,7 +56,8 @@ namespace CountPages.ViewModel
 			{
 				var paths = (string[])e.Data.GetData(DataFormats.FileDrop);
 				PageCount = Convert.ToUInt32(paths
-					.Sum(path => new Document(path).Count()));
+					.Sum(path => new Document(path, new FileStream(path, FileMode.Open)).Count));
+
 				RaisePropertyChanged("PageCount");
 			}
 			catch (Exception ex)

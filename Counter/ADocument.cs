@@ -1,13 +1,15 @@
-﻿namespace Counter.Model
+﻿using System.IO;
+
+namespace Counter
 {
 	internal abstract class ADocument : IDocument
 	{
-		public string FullName { get; set;}
+		public Stream Stream { get; set;}
 		abstract public DocumentType Type { get; }
 
-		protected ADocument(string fullName)
+		protected ADocument(Stream stream)
 		{
-			FullName = fullName;
+			Stream = stream;
 		}
 
 		public abstract uint Count();

@@ -3,28 +3,44 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Counter.Model.Documents;
+using Counter.Documents;
 
 namespace Counter
 {
-    public class Document
-    {
-	    public string Extension { get; private set; }
-	    public string FullName { get; private set; }
+	/// <summary>
+	/// Document is the class wrapping every other class in this library.
+	/// If you are an user, everything you need come from here.
+	/// </summary>
+	public class Document
+	{
+		public DocumentType	ExtensionType { get; private set; }
+		public string		Extension { get; private set; }
+		public string		FullName { get; private set; }
+		public string		Name { get; private set; }
+		public string		NameWithoutExtension { get; private set; }
+		public uint		Count { get; private set; }
 
-	    public Document(string fullName)
-	    {
-		    FullName = fullName;
-		    Extension = Path.GetExtension(fullName);
-	    }
+		public Document(string fullName, Stream stream)
+		{
+			FullName = fullName;
+			Name = Path.GetFileName(Name);
+			NameWithoutExtension = Path.GetFileNameWithoutExtension(Name);
+			Extension = Path.GetExtension(fullName);
+			var doc = BuildDocument(Extension, stream);
+			ExtensionType = doc.Type;
+			Count = doc.Count();
+		}
 
-	    public uint Count()
-	    {
-		    if (Extension.Equals(".doc") || Extension.Equals(".docx"))
-			    return new Doc(FullName).Count();
-		    if (Extension.Equals(".pdf"))
-			    return new Pdf(FullName).Count();
-		    return 0;
-	    }
-    }
+		// replace with a static dictionary ?
+		private static IDocument BuildDocument(string extension, Stream stream)
+		{
+			if (extension.Equals(".doc") || extension.Equals(".docx"))
+				return new Doc(stream);
+			if (extension.Equals(".pdf"))
+				return new Pdf(stream);
+
+			// hard. We should build a NotSupported document. A garbage/waiting place.
+			throw new NotImplementedException("This extension is not emplemented");
+		}
+	}
 }

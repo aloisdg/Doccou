@@ -1,8 +1,10 @@
-﻿namespace Counter.Model
+﻿using System.IO;
+
+namespace Counter
 {
 	internal interface IDocument
 	{
-		string FullName { get; set; }
+		Stream Stream { get; set; }
 		DocumentType Type { get; }
 
 		uint Count();

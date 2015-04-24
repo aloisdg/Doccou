@@ -4,6 +4,7 @@ using GalaSoft.MvvmLight.CommandWpf;
 using System;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Windows;
 
 namespace CountPages.ViewModel
@@ -22,8 +23,8 @@ namespace CountPages.ViewModel
 	/// </summary>
 	public class MainViewModel : ViewModelBase
 	{
-		public uint PageCount { get; private set; }
-		public Visibility LoaderVisibility { get; private set; }
+		public uint PageCount { get; set; }
+		public Visibility LoaderVisibility { get; set; }
 
 		public RelayCommand<object> Dropped { get; private set; }
 
@@ -52,7 +53,7 @@ namespace CountPages.ViewModel
 		private void ReadFiles(DragEventArgs e)
 		{
 			if (!e.Data.GetDataPresent(DataFormats.FileDrop)) return;
-			SwitchLoaderVisibility();
+			//SwitchLoaderVisibility();
 			try
 			{
 				var paths = (string[])e.Data.GetData(DataFormats.FileDrop);
@@ -60,6 +61,7 @@ namespace CountPages.ViewModel
 					.Sum(path => new Document(path, new FileStream(path, FileMode.Open)).Count));
 
 				RaisePropertyChanged("PageCount");
+				//SwitchLoaderVisibility();
 			}
 			catch (Exception ex)
 			{
@@ -67,7 +69,6 @@ namespace CountPages.ViewModel
 			}
 			finally
 			{
-				SwitchLoaderVisibility();
 			}
 		}
 

@@ -13,14 +13,9 @@
 			</i:EventTrigger>
 		</i:Interaction.Triggers>
 
-		<ProgressBar Visibility="{Binding LoaderVisibility}" IsIndeterminate="True" />
+		<ProgressBar IsHitTestVisible="False" Visibility="{Binding LoaderVisibility}" IsIndeterminate="True" />
 
-		<!--<i:Interaction.Triggers>
-			<i:EventTrigger EventName="ValueChanged">
-				<command:EventToCommand Command="{Binding Mode=OneWay, Path=VolumeChanged}" PassEventArgsToCommand="True" />
-			</i:EventTrigger>
-		</i:Interaction.Triggers>-->
-		<Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+		<Grid IsHitTestVisible="False" VerticalAlignment="Center" HorizontalAlignment="Center">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto" />
 				<ColumnDefinition Width="Auto" />

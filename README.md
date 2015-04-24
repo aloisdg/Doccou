@@ -32,36 +32,8 @@ A simple free and open source app to count document pages from anywhere. Drag an
 | [Homemade script][11] |     x     |           |     x     |
 | CountPages            |     x     |     x     |     x     |
 
-## Tic Tac Toe
 
-|     |     1     |     2     |     3     |
-| --- |:---------:|:---------:|:---------:|
-|  1  |     o     |     o     |     x     |
-|  2  |           |     x     |     o     |
-|  3  |     x     |           |     x     |
-
-## Issue
-
-### IdeaBox
-
-* Find a better name
-* Add Image as document with one image equals one page
-* Add a visual summary file by file
-* Export the summary to a text file
-* Export the summary as a csv
-* Move to Mahapps
-* Move this list to the issue list
-* Move the PCL lib in a different project
-* Add .epub support [1](https://epubreader.codeplex.com/)
-* Add .djvu support
-
-### ToDo
-
-* Add .doc support
-* Add .odt support
-* Add documentation (how to use, etc.)
-
-### Done
+## Feature Done v1.0.1.0
 
 * Move to OOP
 * Add .pdf Support

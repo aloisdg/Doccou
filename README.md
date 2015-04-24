@@ -63,3 +63,19 @@ A simple free and open source app to count document pages from anywhere. Drag an
 * Add gui
 * Add .docx support
 * Move to MVVM
+* 
+## Bug Reports & Feature Requests
+
+Please use [GitHub Issues](https://github.com/aloisdg/CountPages/issues) to report bugs or request features.
+
+## Contributing
+
+1. Fork the project.
+2. Create a branch for your new feature.
+3. Write tests.
+4. Write code to make the tests pass.
+5. Submit a pull request.
+
+## License
+
+CountPages uses the MIT license. See LICENSE for more details.

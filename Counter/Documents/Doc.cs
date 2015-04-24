@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace Counter.Documents
 {
 	internal sealed class Doc : ADocument
 	{
-		public override DocumentType	Type { get { return DocumentType.Pdf; } }
-		public override uint		Count { get; protected set; }
+		public override DocumentType Type { get { return DocumentType.Pdf; } }
+
+		public override uint Count { get; protected set; }
 
 		public Doc(Stream stream)
 		{

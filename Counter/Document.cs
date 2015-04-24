@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Counter.Documents;
+using System;
 using System.IO;
-using System.Linq;
-using System.Text;
-using Counter.Documents;
 
 namespace Counter
 {
@@ -13,12 +10,12 @@ namespace Counter
 	/// </summary>
 	public class Document
 	{
-		public DocumentType	ExtensionType { get; private set; }
-		public string		Extension { get; private set; }
-		public string		FullName { get; private set; }
-		public string		Name { get; private set; }
-		public string		NameWithoutExtension { get; private set; }
-		public uint		Count { get; private set; }
+		public DocumentType ExtensionType { get; private set; }
+		public string Extension { get; private set; }
+		public string FullName { get; private set; }
+		public string Name { get; private set; }
+		public string NameWithoutExtension { get; private set; }
+		public uint Count { get; private set; }
 
 		public Document(string fullName, Stream stream)
 		{

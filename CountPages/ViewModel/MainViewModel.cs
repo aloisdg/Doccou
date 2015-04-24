@@ -1,10 +1,10 @@
+using Counter;
+using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.CommandWpf;
 using System;
 using System.IO;
 using System.Linq;
 using System.Windows;
-using Counter;
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.CommandWpf;
 
 namespace CountPages.ViewModel
 {
@@ -22,13 +22,11 @@ namespace CountPages.ViewModel
 	/// </summary>
 	public class MainViewModel : ViewModelBase
 	{
-		public uint PageCount { get; set; }
+		public uint PageCount { get; private set; }
+		public Visibility LoaderVisibility { get; private set; }
 
 		public RelayCommand<object> Dropped { get; private set; }
 
-		/// <summary>
-		/// Initializes a new instance of the MainViewModel class.
-		/// </summary>
 		public MainViewModel()
 		{
 			////if (IsInDesignMode)
@@ -40,6 +38,8 @@ namespace CountPages.ViewModel
 			////    // Code runs "for real"
 			Dropped = new RelayCommand<object>(ExecuteDropped);
 			////}
+
+			SwitchLoaderVisibility();
 		}
 
 		private void ExecuteDropped(object o)
@@ -52,6 +52,7 @@ namespace CountPages.ViewModel
 		private void ReadFiles(DragEventArgs e)
 		{
 			if (!e.Data.GetDataPresent(DataFormats.FileDrop)) return;
+			SwitchLoaderVisibility();
 			try
 			{
 				var paths = (string[])e.Data.GetData(DataFormats.FileDrop);
@@ -64,6 +65,17 @@ namespace CountPages.ViewModel
 			{
 				MessageBox.Show(ex.Message);
 			}
+			finally
+			{
+				SwitchLoaderVisibility();
+			}
+		}
+
+		private void SwitchLoaderVisibility()
+		{
+			LoaderVisibility = LoaderVisibility.Equals(Visibility.Visible)
+				? Visibility.Hidden : Visibility.Visible;
+			RaisePropertyChanged("LoaderVisibility");
 		}
 	}
 }

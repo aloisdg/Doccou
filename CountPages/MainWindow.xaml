@@ -12,6 +12,9 @@
 				<command:EventToCommand Command="{Binding Dropped, Mode=OneWay}" PassEventArgsToCommand="True" />
 			</i:EventTrigger>
 		</i:Interaction.Triggers>
+
+		<ProgressBar Visibility="{Binding LoaderVisibility}" IsIndeterminate="True" />
+
 		<!--<i:Interaction.Triggers>
 			<i:EventTrigger EventName="ValueChanged">
 				<command:EventToCommand Command="{Binding Mode=OneWay, Path=VolumeChanged}" PassEventArgsToCommand="True" />

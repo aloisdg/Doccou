@@ -4,7 +4,7 @@ A simple free and open source app to count document pages from anywhere. Drag an
 
 ## Demo
 
-[![Demo CountPages alpha](http://img.youtube.com/vi/ek1j272iAmc/0.jpg)](https://www.youtube.com/watch?v=ek1j272iAmc)
+[![Demo CountPages alpha](http://share.gifyoutube.com/KzB6Gb.gif)](https://www.youtube.com/watch?v=ek1j272iAmc)
 
 ## Support
 
@@ -68,7 +68,7 @@ A simple free and open source app to count document pages from anywhere. Drag an
 * Add gui
 * Add .docx support
 * Move to MVVM
-* 
+
 ## Bug Reports & Feature Requests
 
 Please use [GitHub Issues](https://github.com/aloisdg/CountPages/issues) to report bugs or request features.

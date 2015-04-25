@@ -17,9 +17,11 @@ namespace Counter.Documents
 		public override DocumentType Type { get { return DocumentType.Odt; } }
 		public override uint Count { get; protected set; }
 
+		private static readonly Archivist Archivist = new Archivist();
+
 		public Odt(Stream stream)
 		{
-			Count = ExtractNumber(Indiana.ReadArchive(stream, Path));
+			Count = ExtractNumber(Archivist.ReadArchive(stream, Path));
 		}
 
 		// Could we improve this ?

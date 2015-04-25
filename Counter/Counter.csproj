@@ -38,7 +38,7 @@
     <Compile Include="Document.cs" />
     <Compile Include="ADocument.cs" />
     <Compile Include="Documents\Doc.cs" />
-    <Compile Include="Documents\Helper\Indiana.cs" />
+    <Compile Include="Documents\Helper\Archivist.cs" />
     <Compile Include="Documents\Odt.cs" />
     <Compile Include="Documents\Pdf.cs" />
     <Compile Include="DocumentType.cs" />

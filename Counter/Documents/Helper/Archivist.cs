@@ -4,9 +4,9 @@ using System.IO.Compression;
 namespace Counter.Documents.Helper
 {
 	// we use Microsoft Compression
-	public static class Indiana
+	internal class Archivist
 	{
-		public static string ReadArchive(Stream archiveStream, string path)
+		public string ReadArchive(Stream archiveStream, string path)
 		{
 			using (var archive = new ZipArchive(archiveStream, ZipArchiveMode.Read))
 			{

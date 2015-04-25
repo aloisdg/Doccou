@@ -12,7 +12,7 @@ A simple free and open source app to count document pages from anywhere. Drag an
 | --------------------- |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
 | [Pdf Page Count][10]  |     x     |           |           |           |           |           |
 | [Homemade script][11] |           |           |     x     |           |           |           |
-| CountPages            |     x     |     x     |           |           |           |           |
+| CountPages            |     x     |     x     |           |     x     |           |           |
 
 [1]: http://en.wikipedia.org/wiki/Pdf
 [2]: http://en.wikipedia.org/wiki/docx

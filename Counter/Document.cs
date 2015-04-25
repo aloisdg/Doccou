@@ -36,6 +36,8 @@ namespace Counter
 				return new Doc(stream);
 			if (extension.Equals(".pdf"))
 				return new Pdf(stream);
+			if (extension.Equals(".odt"))
+				return new Odt(stream);
 
 			// hard. We should build a NotSupported document. A garbage/waiting place.
 			throw new NotImplementedException("This extension is not emplemented");

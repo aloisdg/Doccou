@@ -1,10 +1,10 @@
 ﻿using System.IO;
 using System.IO.Compression;
 
-namespace Counter.Documents.Helper
+namespace Counter.Documents
 {
 	// we use Microsoft Compression
-	internal class Archivist
+	internal abstract class AArchive : ADocument
 	{
 		public string ReadArchive(Stream archiveStream, string path)
 		{

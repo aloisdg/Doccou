@@ -1,6 +1,7 @@
 ﻿using Counter.Documents;
 using System;
 using System.IO;
+using Counter.Documents.Archives;
 
 namespace Counter
 {

@@ -2,22 +2,19 @@
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
-using Counter.Documents.Helper;
 
-namespace Counter.Documents
+namespace Counter.Documents.Archives
 {
-	internal sealed class Doc : ADocument
+	internal sealed class Doc : AArchive
 	{
 		const string Path = "docProps/app.xml";
 		public override DocumentType Type { get { return DocumentType.Pdf; } }
 		public override uint Count { get; protected set; }
 
-		private static readonly Archivist Archivist = new Archivist();
-
 		// a pptx or a docx is a zip
 		public Doc(Stream stream)
 		{
-			Count = ExtractNumber(Archivist.ReadArchive(stream, Path));
+			Count = ExtractNumber(ReadArchive(stream, Path));
 		}
 
 		// Could we improve this ?

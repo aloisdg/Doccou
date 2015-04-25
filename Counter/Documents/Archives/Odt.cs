@@ -1,27 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.IO.Compression;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Xml.Linq;
-using Counter.Documents.Helper;
 
-namespace Counter.Documents
+namespace Counter.Documents.Archives
 {
-	internal sealed class Odt : ADocument
+	internal sealed class Odt : AArchive
 	{
 		const string Path = "meta.xml";
 		public override DocumentType Type { get { return DocumentType.Odt; } }
 		public override uint Count { get; protected set; }
 
-		private static readonly Archivist Archivist = new Archivist();
-
 		public Odt(Stream stream)
 		{
-			Count = ExtractNumber(Archivist.ReadArchive(stream, Path));
+			Count = ExtractNumber(ReadArchive(stream, Path));
 		}
 
 		// Could we improve this ?

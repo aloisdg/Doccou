@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Counter.Documents.Archives;
-using iTextSharp.xmp.impl;
 
 namespace Counter
 {

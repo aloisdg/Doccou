@@ -3,7 +3,6 @@ using System.IO.Compression;
 
 namespace Counter.Documents
 {
-	// we use Microsoft Compression
 	internal abstract class AArchive : ADocument
 	{
 		public string ReadArchive(Stream archiveStream, string path)
@@ -20,11 +19,4 @@ namespace Counter.Documents
 			}
 		}
 	}
-
-	// we cant use for know PCL Storage
-	//private static async Task<Stream> OpenAsync(string fullName)
-	//{
-	//	var file = await FileSystem.Current.GetFileFromPathAsync(fullName);
-	//	return await file.OpenAsync(FileAccess.Read);
-	//}
 }

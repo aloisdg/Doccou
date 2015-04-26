@@ -5,14 +5,14 @@ using System.Xml.Linq;
 
 namespace Counter.Documents.Archives
 {
-	internal sealed class Doc : AArchive
+	internal sealed class Docx : AArchive
 	{
 		const string Path = "docProps/app.xml";
 		public override DocumentType Type { get { return DocumentType.Pdf; } }
 		public override uint Count { get; protected set; }
 
 		// a pptx or a docx is a zip
-		public Doc(Stream stream)
+		public Docx(Stream stream)
 		{
 			Count = ExtractNumber(ReadArchive(stream, Path));
 		}

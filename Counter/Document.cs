@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using Counter.Documents.Archives;
 
 namespace Counter
@@ -27,7 +28,7 @@ namespace Counter
 			{ ".odt", DocumentType.Odt }
 		};
 
-		public Document(string fullName, Stream stream)
+		public Document(string fullName)
 		{
 			FullName = fullName;
 			Name = Path.GetFileName(Name);
@@ -36,6 +37,12 @@ namespace Counter
 			ExtensionType = IsSupported(Extension)
 				? _extensionsSupported[Extension]
 				: DocumentType.Unknow;
+		}
+
+		public Document(string fullName, Stream stream)
+			: this(fullName)
+		{
+			
 			Count = !ExtensionType.Equals(DocumentType.Unknow)
 				? BuildDocument(stream).Count
 				: 0;

@@ -38,7 +38,7 @@ namespace Counter
 				? _extensionsSupported[Extension]
 				: DocumentType.Unknow;
 			Count = !ExtensionType.Equals(DocumentType.Unknow)
-				? BuildDocument(Extension, stream).Count
+				? BuildDocument(stream).Count
 				: 0;
 		}
 
@@ -48,19 +48,15 @@ namespace Counter
 		}
 
 		// replace with a static dictionary ?
-		// http://askubuntu.com/questions/305633/how-can-i-determine-the-page-count-of-odt-doc-docx-and-other-office-documents
-		private static IDocument BuildDocument(string extension, Stream stream)
+		private IDocument BuildDocument(Stream stream)
 		{
-			if (extension.Equals(".docx"))
-				return new Docx(stream);
-			if (extension.Equals(".pdf"))
-				return new Pdf(stream);
-			if (extension.Equals(".odt"))
-				return new Odt(stream);
-
-			// hard. We should build a NotSupported document. A garbage/waiting place.
-			//  InvalidEnumArgumentException
-			throw new NotImplementedException("This extension is not emplemented");
+			switch (ExtensionType)
+			{
+				case DocumentType.Pdf: return new Pdf(stream);
+				case DocumentType.Docx: return new Docx(stream);
+				case DocumentType.Odt: return new Odt(stream);
+				default: throw new NotImplementedException();
+			}
 		}
 	}
 }

@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace Counter
+﻿namespace Counter
 {
 	internal abstract class ADocument : IDocument
 	{

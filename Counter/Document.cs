@@ -31,8 +31,8 @@ namespace Counter
 		public Document(string fullName)
 		{
 			FullName = fullName;
-			Name = Path.GetFileName(Name);
-			NameWithoutExtension = Path.GetFileNameWithoutExtension(Name);
+			Name = Path.GetFileName(fullName);
+			NameWithoutExtension = Path.GetFileNameWithoutExtension(fullName);
 			Extension = Path.GetExtension(fullName);
 			ExtensionType = IsSupported(Extension)
 				? _extensionsSupported[Extension]

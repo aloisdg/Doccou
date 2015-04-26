@@ -3,9 +3,11 @@
 	public enum DocumentType
 	{
 		Pdf,
-		Doc,
+		Docx,
 		Odt,
-		Ppt,
+		//Doc,
+		//Epub,
+		//DjVu,
 		Unknow
 	}
 }

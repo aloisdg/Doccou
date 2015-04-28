@@ -43,7 +43,9 @@ A simple free and open source app to count document pages from anywhere. Drag an
 
 ## Bug Reports & Feature Requests
 
-You can help by reporting bugs, suggesting features, reviewing feature specifications or just by sharing your opinion. Use [GitHub Issues](https://github.com/aloisdg/CountPages/issues) for all of that.
+You can help by reporting bugs, suggesting features, reviewing feature specifications or just by sharing your opinion.
+
+Use [GitHub Issues](https://github.com/aloisdg/CountPages/issues) for all of that.
 
 ## Contributing
 

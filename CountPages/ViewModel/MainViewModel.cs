@@ -2,25 +2,16 @@ using Counter;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using System;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace CountPages.ViewModel
 {
-	/// <summary>
-	/// This class contains properties that the main View can data bind to.
-	/// <para>
-	/// Use the <strong>mvvminpc</strong> snippet to add bindable properties to this ViewModel.
-	/// </para>
-	/// <para>
-	/// You can also use Blend to data bind with the tool's support.
-	/// </para>
-	/// <para>
-	/// See http://www.galasoft.ch/mvvm
-	/// </para>
-	/// </summary>
 	public class MainViewModel : ViewModelBase
 	{
 		public uint PageCount { get; set; }
@@ -43,33 +34,39 @@ namespace CountPages.ViewModel
 			SwitchLoaderVisibility();
 		}
 
-		private void ExecuteDropped(object o)
+		private async void ExecuteDropped(object o)
 		{
 			var e = o as DragEventArgs;
 			if (e != null)
-				ReadFiles(e);
+				await ReadFiles(e);
 		}
 
-		private void ReadFiles(DragEventArgs e)
+		private async Task ReadFiles(DragEventArgs e)
 		{
 			if (!e.Data.GetDataPresent(DataFormats.FileDrop)) return;
-			//SwitchLoaderVisibility();
-			try
-			{
-				var paths = (string[])e.Data.GetData(DataFormats.FileDrop);
-				PageCount = Convert.ToUInt32(paths
-					.Sum(path => new Document(path, new FileStream(path, FileMode.Open)).Count));
+			//try
+			//{
+			var paths = (string[])e.Data.GetData(DataFormats.FileDrop);
 
-				RaisePropertyChanged("PageCount");
-				//SwitchLoaderVisibility();
-			}
-			catch (Exception ex)
+			var tasks = new Task<Document>[paths.Length];
+			for (var i = 0; i < paths.Length; i++)
 			{
-				MessageBox.Show(ex.Message);
+				var path = paths[i];
+				var stream = new FileStream(path, FileMode.Open);
+				tasks[i] = Task.Run<Document>(() =>
+					new Document(path, stream));
 			}
-			finally
-			{
-			}
+			var documents =  await Task.WhenAll(tasks);
+
+			PageCount = Convert.ToUInt32(documents.Sum(doc => doc.Count));
+
+			RaisePropertyChanged("PageCount");
+			//SwitchLoaderVisibility();
+			//}
+			//catch (Exception ex)
+			//{
+			//	MessageBox.Show(ex.Message);
+			//}
 		}
 
 		private void SwitchLoaderVisibility()

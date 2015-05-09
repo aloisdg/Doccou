@@ -2,7 +2,7 @@
 {
 	internal interface IDocument
 	{
-		DocumentType Type { get; }
-		uint Count { get; }
+		DocumentType	Type { get; }
+		uint		Count { get; }
 	}
 }

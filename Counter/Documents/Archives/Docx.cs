@@ -7,9 +7,9 @@ namespace Counter.Documents.Archives
 {
 	internal sealed class Docx : AArchive
 	{
-		const string Path = "docProps/app.xml";
-		public override DocumentType Type { get { return DocumentType.Pdf; } }
-		public override uint Count { get; protected set; }
+		const string			Path = "docProps/app.xml";
+		public override DocumentType	Type { get { return DocumentType.Pdf; } }
+		public override uint		Count { get; protected set; }
 
 		// a pptx or a docx is a zip
 		public Docx(Stream stream)

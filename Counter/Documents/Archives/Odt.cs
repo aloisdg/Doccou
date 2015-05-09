@@ -7,9 +7,9 @@ namespace Counter.Documents.Archives
 {
 	internal sealed class Odt : AArchive
 	{
-		const string Path = "meta.xml";
-		public override DocumentType Type { get { return DocumentType.Odt; } }
-		public override uint Count { get; protected set; }
+		const string			Path = "meta.xml";
+		public override DocumentType	Type { get { return DocumentType.Odt; } }
+		public override uint		Count { get; protected set; }
 
 		public Odt(Stream stream)
 		{

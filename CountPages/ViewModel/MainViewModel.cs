@@ -52,7 +52,7 @@ namespace CountPages.ViewModel
 			for (var i = 0; i < paths.Length; i++)
 			{
 				var path = paths[i];
-				var stream = new FileStream(path, FileMode.Open, FileAccess.ReadWrite);
+				var stream = new FileStream(path, FileMode.Open);
 				tasks[i] = Task.Run(() => new Document(path, stream));
 			}
 			var documents = await Task.WhenAll(tasks);

@@ -1,4 +1,7 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -34,26 +37,25 @@ namespace CountPages.ViewModel
 		private async void ExecuteDropped(object o)
 		{
 			var e = o as DragEventArgs;
-			if (e != null)
-				await ReadFiles(e);
+			if (e != null && e.Data.GetDataPresent(DataFormats.FileDrop, false))
+				await ReadFiles((string[])e.Data.GetData(DataFormats.FileDrop));
 		}
 
-		private async Task ReadFiles(DragEventArgs e)
+		private async Task ReadFiles(IEnumerable<string> droppedPaths)
 		{
-			if (!e.Data.GetDataPresent(DataFormats.FileDrop)) return;
 			//try
 			//{
-			var paths = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+			var paths = droppedPaths.SelectMany(path => path.GetAllFiles()).ToArray();
 
 			var tasks = new Task<Document>[paths.Length];
 			for (var i = 0; i < paths.Length; i++)
 			{
 				var path = paths[i];
-				var stream = new FileStream(path, FileMode.Open);
-				tasks[i] = Task.Run<Document>(() =>
-					new Document(path, stream));
+				var stream = new FileStream(path, FileMode.Open, FileAccess.ReadWrite);
+				tasks[i] = Task.Run(() => new Document(path, stream));
 			}
-			var documents =  await Task.WhenAll(tasks);
+			var documents = await Task.WhenAll(tasks);
 
 			PageCount = Convert.ToUInt32(documents.Sum(doc => doc.Count));
 
@@ -71,6 +73,46 @@ namespace CountPages.ViewModel
 			LoaderVisibility = LoaderVisibility.Equals(Visibility.Visible)
 				? Visibility.Hidden : Visibility.Visible;
 			RaisePropertyChanged("LoaderVisibility");
+		}
+	}
+
+
+	public static class TreeReader
+	{
+		public static IEnumerable<string> GetAllFiles(this string path)
+		{
+			var queue = new Queue<string>();
+			queue.Enqueue(path);
+			while (queue.Count > 0)
+			{
+				path = queue.Dequeue();
+				if (String.IsNullOrEmpty(Path.GetExtension(path)))
+				{
+					try
+					{
+						foreach (var subDir in Directory.GetDirectories(path))
+							queue.Enqueue(subDir);
+					}
+					catch (Exception ex)
+					{
+						Console.Error.WriteLine(ex);
+					}
+					string[] files = null;
+					try
+					{
+						files = Directory.GetFiles(path);
+					}
+					catch (Exception ex)
+					{
+						Console.Error.WriteLine(ex);
+					}
+					if (files != null)
+						foreach (var t in files)
+							yield return t;
+				}
+				else
+					yield return path;
+			}
 		}
 	}
 }

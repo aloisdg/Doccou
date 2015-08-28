@@ -59,4 +59,4 @@ All pull requests are welcome !
 
 ## License
 
-CountPages uses the MIT license. See LICENSE for more details.
+CountPages uses the MIT license. See [LICENSE](https://github.com/aloisdg/CountPages/blob/master/LICENSE) for more details.

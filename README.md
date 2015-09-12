@@ -8,11 +8,11 @@ A simple free and open source app to count document pages from anywhere. Drag an
 
 ## Support
 
-|                       | [Pdf][1]  | [Docx][2] | [Doc][3]  | [Odt][4]  | [ePub][5] | [DjVu][6] |
-| --------------------- |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
-| [Pdf Page Count][10]  |     x     |           |           |           |           |           |
-| [Homemade script][11] |           |           |     x     |           |           |           |
-| CountPages            |     x     |     x     |           |     x     |           |           |
+|                       | [Pdf][1]  | [Docx][2] | [Doc][3]  | [Odt][4]  | [ePub][5] | [DjVu][6] | [Image]   |
+| --------------------- |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+| [Pdf Page Count][10]  |     x     |           |           |           |           |           |           |
+| [Homemade script][11] |           |           |     x     |           |           |           |           |
+| Doccou                |     x     |     x     |           |     x     |           |           |     x     |
 
 [1]: http://en.wikipedia.org/wiki/Pdf
 [2]: http://en.wikipedia.org/wiki/docx
@@ -30,13 +30,25 @@ A simple free and open source app to count document pages from anywhere. Drag an
 | --------------------- |:---------:|:---------:|:---------:|
 | [Pdf Page Count][10]  |     x     |     x     |     x     |
 | [Homemade script][11] |     x     |           |     x     |
-| CountPages            |     x     |     x     |     x     |
+| Doccou                |     x     |     x     |     x     |
 
+## Feature Done 
 
-## Feature Done v1.0.1.0
+### v1.2.0
+
+* Add Sample
+* Add Unit Tests
+* Add image support
+
+### v1.1.0
+
+* Add multithreading
+* Add .odt support
+
+### v1.0.0
 
 * Move to OOP
-* Add .pdf Support
+* Add .pdf support
 * Add gui
 * Add .docx support
 * Move to MVVM

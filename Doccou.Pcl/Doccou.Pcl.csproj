@@ -43,6 +43,7 @@
     <Compile Include="Documents\Pdf.cs" />
     <Compile Include="DocumentType.cs" />
     <Compile Include="IDocument.cs" />
+    <Compile Include="Documents\Img.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

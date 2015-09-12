@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using Doccou.Pcl.Documents;
 using Doccou.Pcl.Documents.Archives;
 
@@ -24,7 +25,13 @@ namespace Doccou.Pcl
 		{
 			{ ".pdf", DocumentType.Pdf },
 			{ ".docx", DocumentType.Docx },
-			{ ".odt", DocumentType.Odt }
+			{ ".odt", DocumentType.Odt },
+			{ ".bmp", DocumentType.Bmp },
+			{ ".jpg", DocumentType.Jpeg },
+			{ ".jpeg", DocumentType.Jpeg },
+			{ ".gif", DocumentType.Gif },
+			{ ".tiff", DocumentType.Tiff },
+			{ ".png", DocumentType.Png },
 		};
 
 		/// <remarks>
@@ -62,6 +69,11 @@ namespace Doccou.Pcl
 				case DocumentType.Pdf: return new Pdf(stream);
 				case DocumentType.Docx: return new Docx(stream);
 				case DocumentType.Odt: return new Odt(stream);
+				case DocumentType.Bmp:
+				case DocumentType.Jpeg:
+				case DocumentType.Gif:
+				case DocumentType.Tiff:
+				case DocumentType.Png: return new Img(stream);
 				default: throw new NotImplementedException();
 			}
 		}

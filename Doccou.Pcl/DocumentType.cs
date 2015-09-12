@@ -8,6 +8,14 @@
 		//Doc,
 		//Epub,
 		//DjVu,
+
+		#region image
+		Bmp,
+		Jpeg,
+		Gif,
+		Tiff,
+		Png,
+		#endregion
 		Unknow
 	}
 }

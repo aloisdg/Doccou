@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
 namespace Doccou.Pcl.Test
 {
@@ -12,10 +13,18 @@ namespace Doccou.Pcl.Test
 		//}
 
 		[Test]
-		public void TestOnePagePdf()
+		public void TestOnePageDocx()
 		{
 			const string path = "../../Example/Docx/OnePage.docx";
 			Assert.AreEqual(1, Helper.ReadCount(path));
+		}
+
+
+		[Test]
+		public void TestOnePageErrorDocx()
+		{
+			const string path = "../../Example/Docx/OnePageError.docx";
+			Assert.Throws<Exception>(() => Helper.ReadCount(path));
 		}
 
 		//[Test]

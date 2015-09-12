@@ -68,8 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Example\Docx\OnePage.docx" />
-    <None Include="Example\example.pdf" />
+    <None Include="Example\Docx\OnePageError.docx" />
     <None Include="Example\Odt\OnePage.odt" />
+    <None Include="Example\Odt\OnePageError.odt" />
     <None Include="Example\Pdf\OnePage.pdf" />
     <None Include="packages.config" />
   </ItemGroup>

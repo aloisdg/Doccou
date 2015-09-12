@@ -7,7 +7,7 @@ namespace Doccou.Pcl.Test
 	{
 		public static UInt32 ReadCount(string path)
 		{
-			return new Document(path, File.Open(path, FileMode.Open)).Count;
+			return new Document(path, File.Open(path, FileMode.Open)).Count ?? 0;
 		}
 	}
 }

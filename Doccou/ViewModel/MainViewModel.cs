@@ -36,13 +36,13 @@ namespace Doccou.ViewModel
 		{
 			var e = o as DragEventArgs;
 			if (e != null && e.Data.GetDataPresent(DataFormats.FileDrop, false))
-				await ReadFiles((string[])e.Data.GetData(DataFormats.FileDrop));
+				await ReadFiles((string[])e.Data.GetData(DataFormats.FileDrop)).ConfigureAwait(false);
 		}
 
 		private async Task ReadFiles(IEnumerable<string> droppedPaths)
 		{
-			//try
-			//{
+			try
+			{
 
 			var paths = droppedPaths.SelectMany(path => path.GetAllFiles()).ToArray();
 
@@ -53,17 +53,17 @@ namespace Doccou.ViewModel
 				var stream = new FileStream(path, FileMode.Open);
 				tasks[i] = Task.Run(() => new Document(path, stream));
 			}
-			var documents = await Task.WhenAll(tasks);
+			var documents = await Task.WhenAll(tasks).ConfigureAwait(false);
 
 			PageCount = Convert.ToUInt32(documents.Sum(doc => doc.Count));
 
 			RaisePropertyChanged("PageCount");
 			//SwitchLoaderVisibility();
-			//}
-			//catch (Exception ex)
-			//{
-			//	MessageBox.Show(ex.Message);
-			//}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
 		}
 
 		private void SwitchLoaderVisibility()

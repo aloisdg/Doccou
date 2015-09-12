@@ -17,7 +17,7 @@ namespace Doccou.Pcl
 		public string		FullName { get; private set; }
 		public string		Name { get; private set; }
 		public string		NameWithoutExtension { get; private set; }
-		public uint		Count { get; private set; }
+		public uint?		Count { get; private set; }
 
 		private readonly Dictionary<string, DocumentType> _extensionsSupported
 			= new Dictionary<string, DocumentType>
@@ -27,7 +27,10 @@ namespace Doccou.Pcl
 			{ ".odt", DocumentType.Odt }
 		};
 
-		public Document(string fullName)
+		/// <remarks>
+		/// We can't open stream ourself.
+		/// </remarks>
+		private Document(string fullName)
 		{
 			FullName = fullName;
 			Name =	Path.GetFileName(fullName);

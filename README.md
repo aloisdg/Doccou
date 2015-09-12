@@ -1,10 +1,10 @@
-# CountPages
+# Doccou
 
 A simple free and open source app to count document pages from anywhere. Drag and drop any number of pdfs, docxs to the app to display the total amount of page.
 
 ## Demo
 
-[![Demo CountPages alpha](http://share.gifyoutube.com/KzB6Gb.gif)](https://www.youtube.com/watch?v=ek1j272iAmc)
+[![Demo Doccou alpha](http://share.gifyoutube.com/KzB6Gb.gif)](https://www.youtube.com/watch?v=ek1j272iAmc)
 
 ## Support
 
@@ -45,7 +45,7 @@ A simple free and open source app to count document pages from anywhere. Drag an
 
 You can help by reporting bugs, suggesting features, reviewing feature specifications or just by sharing your opinion.
 
-Use [GitHub Issues](https://github.com/aloisdg/CountPages/issues) for all of that.
+Use [GitHub Issues](https://github.com/aloisdg/Doccou/issues) for all of that.
 
 ## Contributing
 
@@ -59,4 +59,4 @@ All pull requests are welcome !
 
 ## License
 
-CountPages uses the MIT license. See [LICENSE](https://github.com/aloisdg/CountPages/blob/master/LICENSE) for more details.
+CountPages uses the MIT license. See [LICENSE](https://github.com/aloisdg/Doccou/blob/master/LICENSE) for more details.

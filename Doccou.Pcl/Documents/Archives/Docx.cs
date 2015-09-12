@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace Counter.Documents.Archives
+namespace Doccou.Pcl.Documents.Archives
 {
 	internal sealed class Docx : AArchive
 	{

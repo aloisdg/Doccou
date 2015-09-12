@@ -1,8 +1,8 @@
-﻿using iTextSharp.text.pdf;
-using System;
+﻿using System;
 using System.IO;
+using iTextSharp.text.pdf;
 
-namespace Counter.Documents
+namespace Doccou.Pcl.Documents
 {
 	internal sealed class Pdf : ADocument
 	{

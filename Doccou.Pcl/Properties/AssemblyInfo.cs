@@ -4,11 +4,11 @@ using System.Resources;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Counter")]
-[assembly: AssemblyDescription("Counter is a PCL to count the page's number of a document.")]
+[assembly: AssemblyTitle("Doccou.Pcl")]
+[assembly: AssemblyDescription("Doccou.Pcl is a PCL to count the page's number of a document.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("aloisdg")]
-[assembly: AssemblyProduct("Counter")]
+[assembly: AssemblyProduct("Doccou.Pcl")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -24,5 +24,4 @@ using System.Resources;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.1.3.4")]
-[assembly: AssemblyFileVersion("1.1.3.4")]
+[assembly: AssemblyVersion("1.1.*")]

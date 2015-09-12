@@ -1,16 +1,14 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using Counter;
+using Doccou.Pcl;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 
-namespace CountPages.ViewModel
+namespace Doccou.ViewModel
 {
 	public class MainViewModel : ViewModelBase
 	{

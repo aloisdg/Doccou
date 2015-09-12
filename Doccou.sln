@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountPages", "CountPages\CountPages.csproj", "{FB0F8023-49C1-4996-986A-C3FD32B08F3B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doccou", "Doccou\Doccou.csproj", "{FB0F8023-49C1-4996-986A-C3FD32B08F3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Counter", "Counter\Counter.csproj", "{C3555D87-80C1-4BB0-95C2-831A5B90A5F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doccou.Pcl", "Doccou.Pcl\Doccou.Pcl.csproj", "{C3555D87-80C1-4BB0-95C2-831A5B90A5F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,4 @@
-﻿namespace Counter
+﻿namespace Doccou.Pcl
 {
 	internal abstract class ADocument : IDocument
 	{

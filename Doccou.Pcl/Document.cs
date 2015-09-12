@@ -1,11 +1,10 @@
-﻿using Counter.Documents;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
-using Counter.Documents.Archives;
+using Doccou.Pcl.Documents;
+using Doccou.Pcl.Documents.Archives;
 
-namespace Counter
+namespace Doccou.Pcl
 {
 	/// <summary>
 	/// Document is the class wrapping every other class in this library.
@@ -42,7 +41,6 @@ namespace Counter
 		public Document(string fullName, Stream stream)
 			: this(fullName)
 		{
-			
 			Count = !ExtensionType.Equals(DocumentType.Unknow)
 				? BuildDocument(stream).Count
 				: 0;

@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace CountPages
+namespace Doccou
 {
 	/// <summary>
 	/// Interaction logic for App.xaml

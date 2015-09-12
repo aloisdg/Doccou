@@ -1,7 +1,7 @@
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 
-namespace CountPages.ViewModel
+namespace Doccou.ViewModel
 {
 	/// <summary>
 	/// This class contains static references to all the view models in the

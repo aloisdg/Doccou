@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace Counter.Documents.Archives
+namespace Doccou.Pcl.Documents.Archives
 {
 	internal sealed class Odt : AArchive
 	{
@@ -27,6 +27,4 @@ namespace Counter.Documents.Archives
 			return Convert.ToUInt32(value);
 		}
 	}
-
-	
 }

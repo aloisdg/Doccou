@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace CountPages
+namespace Doccou
 {
 	public partial class MainWindow : Window
 	{

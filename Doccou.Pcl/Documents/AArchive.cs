@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.IO.Compression;
 
-namespace Counter.Documents
+namespace Doccou.Pcl.Documents
 {
 	internal abstract class AArchive : ADocument
 	{

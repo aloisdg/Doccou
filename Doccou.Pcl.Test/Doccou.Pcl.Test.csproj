@@ -54,6 +54,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Helper.cs" />
+    <Compile Include="UnitTestDocx.cs" />
+    <Compile Include="UnitTestOdt.cs" />
     <Compile Include="UnitTestPdf.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -64,6 +67,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Example\Docx\OnePage.docx" />
+    <None Include="Example\example.pdf" />
+    <None Include="Example\Odt\OnePage.odt" />
+    <None Include="Example\Pdf\OnePage.pdf" />
     <None Include="packages.config" />
   </ItemGroup>
   <Choose>

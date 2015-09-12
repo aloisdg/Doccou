@@ -3,7 +3,7 @@
 namespace Doccou.Pcl.Test
 {
 	[TestFixture]
-	public class UnitTestPdf
+	public class UnitTestDocx
 	{
 		//[Test]
 		//public void TestEmptyPdf()
@@ -14,7 +14,7 @@ namespace Doccou.Pcl.Test
 		[Test]
 		public void TestOnePagePdf()
 		{
-			const string path = "../../Example/Pdf/OnePage.pdf";
+			const string path = "../../Example/Docx/OnePage.docx";
 			Assert.AreEqual(1, Helper.ReadCount(path));
 		}
 

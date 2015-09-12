@@ -42,7 +42,7 @@ namespace Doccou.Pcl
 			FullName = fullName;
 			Name = Path.GetFileName(fullName);
 			NameWithoutExtension = Path.GetFileNameWithoutExtension(fullName);
-			Extension = Path.GetExtension(fullName);
+			Extension = Path.GetExtension(fullName).ToLowerInvariant();
 			ExtensionType = IsSupported(Extension)
 				? _extensionsSupported[Extension]
 				: DocumentType.Unknow;

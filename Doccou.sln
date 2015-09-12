@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doccou", "Doccou\Doccou.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doccou.Pcl", "Doccou.Pcl\Doccou.Pcl.csproj", "{C3555D87-80C1-4BB0-95C2-831A5B90A5F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doccou.Pcl.Test", "Doccou.Pcl.Test\Doccou.Pcl.Test.csproj", "{B3990AFC-7BD3-47B0-9DFF-BA342A4406C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C3555D87-80C1-4BB0-95C2-831A5B90A5F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3555D87-80C1-4BB0-95C2-831A5B90A5F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3555D87-80C1-4BB0-95C2-831A5B90A5F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3990AFC-7BD3-47B0-9DFF-BA342A4406C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3990AFC-7BD3-47B0-9DFF-BA342A4406C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3990AFC-7BD3-47B0-9DFF-BA342A4406C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3990AFC-7BD3-47B0-9DFF-BA342A4406C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

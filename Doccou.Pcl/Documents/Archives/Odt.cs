@@ -13,7 +13,14 @@ namespace Doccou.Pcl.Documents.Archives
 
 		public Odt(Stream stream)
 		{
-			Count = ExtractNumber(ReadArchive(stream, Path));
+			try
+			{
+				Count = ExtractNumber(ReadArchive(stream, Path));
+			}
+			catch (Exception ex)
+			{
+				throw new Exception("We can't create this ODT.", ex);
+			}
 		}
 
 		// Could we improve this ?

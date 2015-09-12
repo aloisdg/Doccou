@@ -12,12 +12,12 @@ namespace Doccou.Pcl
 	/// </summary>
 	public class Document
 	{
-		public DocumentType	ExtensionType { get; private set; }
-		public string		Extension { get; private set; }
-		public string		FullName { get; private set; }
-		public string		Name { get; private set; }
-		public string		NameWithoutExtension { get; private set; }
-		public uint?		Count { get; private set; }
+		public DocumentType ExtensionType { get; private set; }
+		public string Extension { get; private set; }
+		public string FullName { get; private set; }
+		public string Name { get; private set; }
+		public string NameWithoutExtension { get; private set; }
+		public uint? Count { get; private set; }
 
 		private readonly Dictionary<string, DocumentType> _extensionsSupported
 			= new Dictionary<string, DocumentType>
@@ -33,7 +33,7 @@ namespace Doccou.Pcl
 		private Document(string fullName)
 		{
 			FullName = fullName;
-			Name =	Path.GetFileName(fullName);
+			Name = Path.GetFileName(fullName);
 			NameWithoutExtension = Path.GetFileNameWithoutExtension(fullName);
 			Extension = Path.GetExtension(fullName);
 			ExtensionType = IsSupported(Extension)

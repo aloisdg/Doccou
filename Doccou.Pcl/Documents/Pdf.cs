@@ -13,7 +13,14 @@ namespace Doccou.Pcl.Documents
 		// so thread http://stackoverflow.com/q/320281/1248177
 		public Pdf(Stream stream)
 		{
-			Count = Convert.ToUInt32(new PdfReader(stream).NumberOfPages);
+			try
+			{
+				Count = Convert.ToUInt32(new PdfReader(stream).NumberOfPages);
+			}
+			catch (Exception ex)
+			{
+				throw  new Exception("We can't create this PDF.", ex);
+			}
 		}
 	}
 }

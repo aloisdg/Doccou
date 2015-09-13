@@ -3,20 +3,22 @@ using System.Linq;
 
 namespace Doccou.Pcl.Documents
 {
-	internal sealed class Img : IDocument
+	internal abstract class AImg : IDocument
 	{
-		public DocumentType Type { get; private set; }
+		public abstract DocumentType Type { get; }
 		public uint Count { get; private set; }
 
 		/// <remarks>
 		/// Count is hardcoded as one page.
 		/// </remarks>
 		/// <param name="stream">A stream representation of the file.</param>
-		public Img(Stream stream)
+		protected AImg(Stream stream)
 		{
-			Type = GetDocumentType(StreamToBytes(stream));
+			//Type = GetDocumentType(StreamToBytes(stream));
 			Count = 1;
 		}
+
+		#region get Type
 
 		/// <summary>
 		/// Get image type from file in bytes form.
@@ -80,5 +82,43 @@ namespace Doccou.Pcl.Documents
 				return memoryStream.ToArray();
 			}
 		}
+
+		#endregion
+
+	}
+
+	internal class Bmp : AImg
+	{
+		public override DocumentType Type { get { return DocumentType.Bmp; } }
+
+		public Bmp(Stream stream) : base(stream) { }
+	}
+
+	internal class Jpeg : AImg
+	{
+		public override DocumentType Type { get { return DocumentType.Jpeg; } }
+
+		public Jpeg(Stream stream) : base(stream) { }
+	}
+
+	internal class Gif : AImg
+	{
+		public override DocumentType Type { get { return DocumentType.Gif; } }
+
+		public Gif(Stream stream) : base(stream) { }
+	}
+
+	internal class Tiff : AImg
+	{
+		public override DocumentType Type { get { return DocumentType.Tiff; } }
+
+		public Tiff(Stream stream) : base(stream) { }
+	}
+
+	internal class Png : AImg
+	{
+		public override DocumentType Type { get { return DocumentType.Png; } }
+
+		public Png(Stream stream) : base(stream) { }
 	}
 }

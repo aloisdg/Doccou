@@ -66,15 +66,18 @@ namespace Doccou.Pcl
 		{
 			switch (ExtensionType)
 			{
-				case DocumentType.Pdf: return new Pdf(stream);
-				case DocumentType.Docx: return new Docx(stream);
-				case DocumentType.Odt: return new Odt(stream);
-				case DocumentType.Bmp:
-				case DocumentType.Jpeg:
-				case DocumentType.Gif:
-				case DocumentType.Tiff:
-				case DocumentType.Png: return new Img(stream);
-				default: throw new NotImplementedException();
+				case DocumentType.Pdf:	return new Pdf(stream);
+				case DocumentType.Docx:	return new Docx(stream);
+				case DocumentType.Odt:	return new Odt(stream);
+				case DocumentType.Bmp:	return new Bmp(stream);
+				case DocumentType.Jpeg:	return new Jpeg(stream);
+				case DocumentType.Gif:	return new Gif(stream);
+				case DocumentType.Tiff:	return new Tiff(stream);
+				case DocumentType.Png:	return new Png(stream);
+				default:
+					throw new NotImplementedException(String.Format(
+						"{0} is a \"{1}\" and \"{1}\" is not implemented.",
+						NameWithoutExtension, Extension));
 			}
 		}
 	}

@@ -8,29 +8,33 @@ A simple free and open source app to count document pages from anywhere. Drag an
 
 ## Support
 
-|                       | [Pdf][1]  | [Docx][2] | [Doc][3]  | [Odt][4]  | [ePub][5] | [DjVu][6] | [Image]   |
-| --------------------- |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
-| [Pdf Page Count][10]  |     x     |           |           |           |           |           |           |
-| [Homemade script][11] |           |           |     x     |           |           |           |           |
-| Doccou                |     x     |     x     |           |     x     |           |           |     x     |
+|                       | [Pdf][1]  | [Docx][2] | [Pptx][3] | [Doc][4]  | [Odt][5]  | [ePub][6] | [DjVu][7] | Image     |
+| --------------------- |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+| [Pdf Page Count][10]  |     x     |           |           |           |           |           |           |           |
+| [Homemade script][11] |           |           |           |     x     |           |           |           |           |
+| [AnyCount][12]        |     x     |     x     |     x     |     x     |     x     |     x     |           |     x     |
+| Doccou                |     x     |     x     |     x     |           |     x     |           |           |     x     |
 
 [1]: http://en.wikipedia.org/wiki/Pdf
 [2]: http://en.wikipedia.org/wiki/docx
-[3]: http://en.wikipedia.org/wiki/doc
-[4]: http://en.wikipedia.org/wiki/OpenDocument
-[5]: http://en.wikipedia.org/wiki/EPUB
-[6]: http://en.wikipedia.org/wiki/DjVu
+[3]: http://en.wikipedia.org/wiki/pptx
+[4]: http://en.wikipedia.org/wiki/doc
+[5]: http://en.wikipedia.org/wiki/OpenDocument
+[6]: http://en.wikipedia.org/wiki/EPUB
+[7]: http://en.wikipedia.org/wiki/DjVu
 
 [10]: http://sourceforge.net/projects/pdfpagecount/
 [11]: http://blogs.technet.com/b/heyscriptingguy/archive/2006/09/07/how-can-i-get-a-total-page-count-for-all-the-word-documents-in-a-folder.aspx
+[12]: http://www.anycount.com/
 
 ## Versus
 
-|                       |    Free   |   GUI     |    FOSS   |
-| --------------------- |:---------:|:---------:|:---------:|
-| [Pdf Page Count][10]  |     x     |     x     |     x     |
-| [Homemade script][11] |     x     |           |     x     |
-| Doccou                |     x     |     x     |     x     |
+|                       |    Free   |    GUI    |    FOSS   |    Lib    |    PCL    |
+| --------------------- |:---------:|:---------:|:---------:|:---------:|:---------:|
+| [Pdf Page Count][10]  |     x     |     x     |     x     |           |           |
+| [Homemade script][11] |     x     |           |     x     |           |           |
+| [AnyCount][12]        |           |     x     |           |           |           |
+| Doccou                |     x     |     x     |     x     |     x     |     x     |
 
 ## Feature Done 
 
@@ -39,6 +43,7 @@ A simple free and open source app to count document pages from anywhere. Drag an
 * Add Sample
 * Add Unit Tests
 * Add image support
+* Add pptx support
 
 ### v1.1.0
 

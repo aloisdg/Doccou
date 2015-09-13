@@ -15,7 +15,7 @@ namespace Doccou.ViewModel
 	public class MainViewModel : ViewModelBase
 	{
 		public uint PageCount { get; set; }
-		private ObservableCollection<Document> Documents { get; set; }
+		public ObservableCollection<Document> Documents { get; set; }
 
 		public Visibility LoaderVisibility { get; set; }
 

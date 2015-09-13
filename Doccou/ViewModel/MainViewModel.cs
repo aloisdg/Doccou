@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using Doccou.Pcl;
+using Doccou.ViewModel.Extensions;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 
@@ -13,6 +15,8 @@ namespace Doccou.ViewModel
 	public class MainViewModel : ViewModelBase
 	{
 		public uint PageCount { get; set; }
+		private ObservableCollection<Document> Documents { get; set; }
+
 		public Visibility LoaderVisibility { get; set; }
 
 		public RelayCommand<object> Dropped { get; private set; }
@@ -44,21 +48,24 @@ namespace Doccou.ViewModel
 			try
 			{
 
-			var paths = droppedPaths.SelectMany(path => path.GetAllFiles()).ToArray();
+				var paths = droppedPaths.SelectMany(path => path.GetAllFiles()).ToArray();
 
-			var tasks = new Task<Document>[paths.Length];
-			for (var i = 0; i < paths.Length; i++)
-			{
-				var path = paths[i];
-				var stream = new FileStream(path, FileMode.Open);
-				tasks[i] = Task.Run(() => new Document(path, stream));
-			}
-			var documents = await Task.WhenAll(tasks).ConfigureAwait(false);
+				var tasks = new Task<Document>[paths.Length];
+				for (var i = 0; i < paths.Length; i++)
+				{
+					var path = paths[i];
+					var stream = new FileStream(path, FileMode.Open);
+					tasks[i] = Task.Run(() => new Document(path, stream));
+				}
+				var documents = await Task.WhenAll(tasks).ConfigureAwait(false);
 
-			PageCount = Convert.ToUInt32(documents.Sum(doc => doc.Count));
+				Documents  = new ObservableCollection<Document>(documents);
 
-			RaisePropertyChanged("PageCount");
-			//SwitchLoaderVisibility();
+				PageCount = Convert.ToUInt32(documents.Sum(doc => doc.Count));
+
+				RaisePropertyChanged("PageCount");
+				RaisePropertyChanged("Documents");
+				//SwitchLoaderVisibility();
 			}
 			catch (Exception ex)
 			{
@@ -71,46 +78,6 @@ namespace Doccou.ViewModel
 			LoaderVisibility = LoaderVisibility.Equals(Visibility.Visible)
 				? Visibility.Hidden : Visibility.Visible;
 			RaisePropertyChanged("LoaderVisibility");
-		}
-	}
-
-
-	public static class TreeReader
-	{
-		public static IEnumerable<string> GetAllFiles(this string path)
-		{
-			var queue = new Queue<string>();
-			queue.Enqueue(path);
-			while (queue.Count > 0)
-			{
-				path = queue.Dequeue();
-				if (String.IsNullOrEmpty(Path.GetExtension(path)))
-				{
-					try
-					{
-						foreach (var subDir in Directory.GetDirectories(path))
-							queue.Enqueue(subDir);
-					}
-					catch (Exception ex)
-					{
-						Console.Error.WriteLine(ex);
-					}
-					string[] files = null;
-					try
-					{
-						files = Directory.GetFiles(path);
-					}
-					catch (Exception ex)
-					{
-						Console.Error.WriteLine(ex);
-					}
-					if (files != null)
-						foreach (var t in files)
-							yield return t;
-				}
-				else
-					yield return path;
-			}
 		}
 	}
 }

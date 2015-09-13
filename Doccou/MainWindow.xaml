@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:command="http://www.galasoft.ch/mvvmlight"
-        Title="CountPage" Height="350" Width="525"
+        Title="Doccou" Height="350" Width="525"
 	DataContext="{Binding MainViewModel, Source={StaticResource Locator}}">
 
 	<Grid AllowDrop="True" Background="White">

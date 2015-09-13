@@ -28,7 +28,7 @@ namespace Doccou.Pcl.Documents.Archives
 		// Could we improve this ?
 		private static uint ExtractNumber(string content)
 		{
-			var matched = Regex.Match(content, @"(?<=\<Pages\>).*(?=\</Pages\>)").Groups[0].Value;
+			//var matched = Regex.Match(content, @"(?<=\<Pages\>).*(?=\</Pages\>)").Groups[0].Value;
 
 			var xelement = XElement.Parse(content);
 			var node = xelement.Elements().First(x => x.Name.LocalName.Equals("Pages"));

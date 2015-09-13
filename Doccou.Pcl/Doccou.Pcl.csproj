@@ -40,6 +40,7 @@
     <Compile Include="Documents\AArchive.cs" />
     <Compile Include="Documents\Archives\Docx.cs" />
     <Compile Include="Documents\Archives\Odt.cs" />
+    <Compile Include="Documents\Archives\Pptx.cs" />
     <Compile Include="Documents\Pdf.cs" />
     <Compile Include="DocumentType.cs" />
     <Compile Include="IDocument.cs" />

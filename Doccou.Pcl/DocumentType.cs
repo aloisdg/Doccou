@@ -4,6 +4,7 @@
 	{
 		Pdf,
 		Docx,
+		Pptx,
 		Odt,
 		//Doc,
 		//Epub,

@@ -25,6 +25,7 @@ namespace Doccou.Pcl
 		{
 			{ ".pdf", DocumentType.Pdf },
 			{ ".docx", DocumentType.Docx },
+			{ ".pptx", DocumentType.Pptx },
 			{ ".odt", DocumentType.Odt },
 			{ ".bmp", DocumentType.Bmp },
 			{ ".jpg", DocumentType.Jpeg },
@@ -67,7 +68,8 @@ namespace Doccou.Pcl
 			switch (ExtensionType)
 			{
 				case DocumentType.Pdf:	return new Pdf(stream);
-				case DocumentType.Docx:	return new Docx(stream);
+				case DocumentType.Docx: return new Docx(stream);
+				case DocumentType.Pptx: return new Pptx(stream);
 				case DocumentType.Odt:	return new Odt(stream);
 				case DocumentType.Bmp:	return new Bmp(stream);
 				case DocumentType.Jpeg:	return new Jpeg(stream);

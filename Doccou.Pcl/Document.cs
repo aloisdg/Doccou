@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using Doccou.Pcl.Documents;
 using Doccou.Pcl.Documents.Archives;
 
@@ -11,14 +9,14 @@ namespace Doccou.Pcl
 	/// Document is the class wrapping every other class in this library.
 	/// If you are an user, everything you need come from here.
 	/// </summary>
-	public class Document
+	public class Document : IDocument
 	{
-		public DocumentType ExtensionType { get; private set; }
+		public DocumentType Type { get; private set; }
 		public string Extension { get; private set; }
 		public string FullName { get; private set; }
 		public string Name { get; private set; }
 		public string NameWithoutExtension { get; private set; }
-		public uint? Count { get; private set; }
+		public uint Count { get; private set; }
 
 		private readonly Dictionary<string, DocumentType> _extensionsSupported
 			= new Dictionary<string, DocumentType>
@@ -44,17 +42,14 @@ namespace Doccou.Pcl
 			Name = Path.GetFileName(fullName);
 			NameWithoutExtension = Path.GetFileNameWithoutExtension(fullName);
 			Extension = Path.GetExtension(fullName).ToLowerInvariant();
-			ExtensionType = IsSupported(Extension)
-				? _extensionsSupported[Extension]
-				: DocumentType.Unknow;
 		}
 
 		public Document(string fullName, Stream stream)
 			: this(fullName)
 		{
-			Count = !ExtensionType.Equals(DocumentType.Unknow)
-				? BuildDocument(stream).Count
-				: 0;
+			var document = BuildDocument(stream);
+			Count = document.Count;
+			Type = document.Type;
 		}
 
 		public bool IsSupported(string extension)
@@ -63,23 +58,22 @@ namespace Doccou.Pcl
 		}
 
 		// replace with a static dictionary ?
+		// could be a constructor
 		private IDocument BuildDocument(Stream stream)
 		{
-			switch (ExtensionType)
+			switch (Extension)
 			{
-				case DocumentType.Pdf:	return new Pdf(stream);
-				case DocumentType.Docx: return new Docx(stream);
-				case DocumentType.Pptx: return new Pptx(stream);
-				case DocumentType.Odt:	return new Odt(stream);
-				case DocumentType.Bmp:	return new Bmp(stream);
-				case DocumentType.Jpeg:	return new Jpeg(stream);
-				case DocumentType.Gif:	return new Gif(stream);
-				case DocumentType.Tiff:	return new Tiff(stream);
-				case DocumentType.Png:	return new Png(stream);
-				default:
-					throw new NotImplementedException(String.Format(
-						"{0} is a \"{1}\" and \"{1}\" is not implemented.",
-						NameWithoutExtension, Extension));
+				case ".pdf": return new Pdf(stream);
+				case ".docx": return new Docx(stream);
+				case ".pptx": return new Pptx(stream);
+				case ".odt": return new Odt(stream);
+				case ".bmp": return new Bmp(stream);
+				case ".jpg":
+				case ".jpeg": return new Jpeg(stream);
+				case ".gif": return new Gif(stream);
+				case ".tiff": return new Tiff(stream);
+				case ".png": return new Png(stream);
+				default: return new Unknow();
 			}
 		}
 	}

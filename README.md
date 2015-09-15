@@ -57,6 +57,20 @@ A simple free and open source app to count document pages from anywhere. Drag an
 * Add gui
 * Add .docx support
 * Move to MVVM
+ 
+## Sample 
+
+A simple usecase of Doccou.PCL :
+
+    static void Main()
+    {
+	  	const string path = "../../Example/example.pdf";
+	  	
+		  var document = new Document(path, File.Open(path, FileMode.Open));
+		  Console.WriteLine("{0} contains {1} pages.", document.Name, document.Count);
+	  }
+
+You can find this sample [in Doccou.Pcl.Sample](https://github.com/aloisdg/Doccou/blob/master/Doccou.Pcl.Sample/Program.cs).
 
 ## Bug Reports & Feature Requests
 
